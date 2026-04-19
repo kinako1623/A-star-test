@@ -1,101 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IRBot - 3D Floor Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-select=none">
   <style>
-    /* ページ全体の基本スタイル */
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #f0f2f5;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-
-    /* 3Dビューアを収める親フレーム */
+    /* viewer-containerをレスポンシブに */
     #viewer-container {
+      width: 100%;      /* 横幅いっぱい */
+      height: 80vh;     /* 画面の高さの80%（スマホで操作しやすくするため） */
+      max-height: 600px;
       position: relative;
-      width: 100%;
-      max-width: 80%; /* サイトに合わせて調整 */
-      height: 80%;    /* サイトに合わせて調整 */
-      margin: 0 auto;
-      background-color: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      overflow: hidden; /* CanvasやUIのはみ出しを防ぐ */
-      border: 1px solid #ddd;
+      touch-action: none; /* ブラウザのデフォルトスクロールを防止 */
     }
 
-    /* Three.jsのキャンバス */
-    #app {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    /* 操作パネルのフレーム（ガラスデザイン） */
+    /* UIフレームをスマホ用に大きく・押しやすく */
     #ui-frame {
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      width: 50px;
-      padding: 20px 8px;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      z-index: 10;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      right: 10px;      /* 少し端に寄せる */
+      width: 60px;      /* タップしやすく少し太く */
+      padding: 15px 5px;
     }
 
-    /* 階数表示バッジ */
-    #floor-badge {
-      background: #333;
-      color: white;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 13px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    /* 縦型スライダーのカスタマイズ */
+    /* スライダーを太くして指で掴みやすく */
     #floor-slider {
-      appearance: slider-vertical;
-      writing-mode: bt-lr;
-      width: 8px;
-      height: 300px;
+      width: 25px;      /* つまみだけでなくレールも少し太く */
+      height: 200px;
       cursor: pointer;
-      outline: none;
     }
 
-    /* 補助テキスト（縦書き） */
-    .slider-label {
-      writing-mode: vertical-rl;
-      font-size: 10px;
-      color: #666;
-      letter-spacing: 2px;
-      margin-top: 5px;
-      opacity: 0.7;
+    /* タップ時の青い枠を消す */
+    * {
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
-  <script type="module" crossorigin src="./assets/index-BZzDBYpp.js"></script>
+  <script type="module" crossorigin src="./assets/index-CiJzBP_V.js"></script>
 </head>
 <body>
 
