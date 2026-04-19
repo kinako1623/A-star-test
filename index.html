@@ -1,5 +1,30 @@
-<script type="module" crossorigin src="./assets/index-BBCu905B.js"></script>
+<script type="module" crossorigin src="./assets/index-C6VTwdM1.js"></script>
 
 <body>
   <canvas id="app"></canvas>
+<div id="ui-container" style="
+    position: absolute; 
+    top: 50%; 
+    right: 20px; 
+    transform: translateY(-50%); 
+    background: rgba(255,255,255,0.8); 
+    padding: 15px; 
+    border-radius: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px;
+">
+  <div style="font-weight: bold; font-family: sans-serif;">
+    <span id="floor-label">1</span>F
+  </div>
+
+  <input type="range" id="floor-slider" min="0" max="4" step="1" value="0" 
+    style="
+      appearance: slider-vertical; /* Firefox / Safari / Chrome用 */
+      width: 10px; 
+      height: 200px; 
+      cursor: pointer;
+    ">
+</div>
 </body>
